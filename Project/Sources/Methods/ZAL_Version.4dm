@@ -1,7 +1,10 @@
 //%attributes = {}
 C_TEXT:C284($0)
 
-$0:="2.0.2"
+$0:="2.0.3"
+
+//2.0.3 - 05/10/2023
+// ZAL_Make_Request - when the "HTTP_ERROR" error handler is tripped, the response will still try to extract data from the HTTP response
 
 //2.0.2 - 14/09/2023
 // ZAL_Get_Logistic_Centers - new method for new Logistic-centers endpoint
