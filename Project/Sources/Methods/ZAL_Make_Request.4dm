@@ -84,6 +84,13 @@ If ($vo_res.success)
 	If (vl_httpError#0)
 		$vo_response.status:=0
 		$vo_response.response:=New object:C1471("errorCode"; vl_httpError; "errorMessage"; vt_httpError)
+		
+		//Despite the error, attempt to extract data from blob
+		ON ERR CALL:C155("HTTP_Error")
+		$vt_response:=BLOB to text:C555($vx_test; UTF8 text without length:K22:17)
+		$vo_response.httpResponse:=$vt_response
+		ON ERR CALL:C155("")
+		
 	Else 
 		$vo_response.status:=$vl_status
 		If ($vt_response#"")
